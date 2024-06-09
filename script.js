@@ -5,18 +5,17 @@ const questions = [
     question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
     answers: [
       { text: "¿Acaso lo dudas?", nextQuestion: 1 },
-      { text: "¿Quién va a ser si no, Fran?", nextQuestion: 2 },
-      { text: "Antonio", nextQuestion: 3 },
+      { text: "¿Quién va a ser si no, Fran?", nextQuestion: 3 },
+      { text: "Antonio", nextQuestion: 2 },
       { text: "¡Vaya pregunta!", nextQuestion: 4 }
     ]
   },
   { // Pregunta 1
-    question: "¿Se merece Álvaro una casa gratis en Tulum Country Club?",
+    question: "¿Antonio? Te ha bailado el ratón",
     answers: [
-      { text: "Yo creo que sí", nextQuestion: null },
-      { text: "Un palacio", nextQuestion: null },
-      { text: "¡Ya te digo!", nextQuestion: null },
-      { text: "No hay duda", nextQuestion: null }
+      { text: "Sí perdón, no volverá a pasar", nextQuestion: null },
+      { text: "Siempre Alvaro first", nextQuestion: null }
+
     ]
   },
   { // Pregunta 2
@@ -29,10 +28,10 @@ const questions = [
     ]
   },
   { // Pregunta 3
-    question: "Pregunta alternativa 1",
+    question: "¿Fran? ¿el que nunca está en su sitio?",
     answers: [
-      { text: "Respuesta 1", nextQuestion: null },
-      { text: "Respuesta 2", nextQuestion: null }
+      { text: "Estará en el yate", nextQuestion: null },
+      { text: "Le está dando ventas a los brokers", nextQuestion: null }
     ]
   },
   { // Pregunta 4

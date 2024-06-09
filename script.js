@@ -2,35 +2,35 @@ const proxyUrl = '/api/proxy'; // URL del proxy en Netlify
 
 const questions = [
   { // Pregunta 0
-    question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
+    question: "¿Qué tipo de propiedad buscas?",
     answers: [
-      { text: "¿Acaso lo dudas?", nextQuestion: 2, image: "https://github.com/budapest85/chatbot-Alvaro/blob/main/giphy.gif?raw=true" },
-      { text: "¿Quién va a ser si no, Fran?", nextQuestion: 3 },
-      { text: "Antonio", nextQuestion: 1 },
-      { text: "¡Vaya pregunta!", nextQuestion: 4 }
+      { text: "¿Un apartamento?", nextQuestion: 2, image: "https://github.com/budapest85/chatbot-Alvaro/blob/main/giphy.gif?raw=true" },
+      { text: "¿Una villa?", nextQuestion: 3 },
+      { text: "Un lote condominal", nextQuestion: 1 },
+      { text: "No estoy seguro", nextQuestion: 4 }
     ]
   },
   { // Pregunta 1
-    question: "¿Antonio? Te has equivocado verdad?",
+    question: "¿Vale, quieres un lote, y sabes cuánto estás dispuesto a invertir?",
     answers: [
-      { text: "Sí perdón, no volverá a pasar", nextQuestion: null },
-      { text: "Siempre Alvaro first", nextQuestion: null }
+      { text: "menos de un millón de dólares", nextQuestion: null },
+      { text: "Más de1 millón de dólares", nextQuestion: null }
     ]
   },
   { // Pregunta 2
-    question: "¿Es Álvaro el puto amo?",
+    question: "¿Buscas ambiente familiar?",
     answers: [
-      { text: "Sí", nextQuestion: null },
-      { text: "100% lo es", nextQuestion: null },
-      { text: "Absolutamente", nextQuestion: null },
-      { text: "Sí rotundo", nextQuestion: null }
+      { text: "Sí, buaco zonas comunes", nextQuestion: null },
+      { text: "Me interesa mucho el deporte", nextQuestion: null },
+      { text: "Solo busco invertir", nextQuestion: null },
+      { text: "Busco una segunda residencia", nextQuestion: null }
     ]
   },
   { // Pregunta 3
-    question: "¿Fran? ¿el que nunca está en su sitio?",
+    question: "Ya sabemos que buscas una villa, pero...",
     answers: [
-      { text: "Estará en el yate", nextQuestion: 2, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/yrt.gif" },
-      { text: "Le está dando ventas a los brokers", nextQuestion: null }
+      { text: "Quieres ademas una piscina?", nextQuestion: 2, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/yrt.gif" },
+      { text: "¿Una o dos plantas?", nextQuestion: null }
     ]
   },
   { // Pregunta 4

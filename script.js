@@ -4,7 +4,7 @@ const questions = [
   { // Pregunta 0
     question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
     answers: [
-      { text: "¿Acaso lo dudas?", nextQuestion: 2 },
+      { text: "¿Acaso lo dudas?", nextQuestion: 1, image: "<iframe src="https://giphy.com/embed/5wWf7GR2nhgamhRnEuA" width="480" height="271" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/editingandlayout-the-office-true-dwight-5wWf7GR2nhgamhRnEuA">via GIPHY</a></p>" },
       { text: "Fran", nextQuestion: 1 },
       { text: "Antonio", nextQuestion: 3 }
 

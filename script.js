@@ -1,25 +1,25 @@
 const proxyUrl = '/api/proxy'; // URL del proxy en Netlify
 
 const questions = [
-  {
+  { // Pregunta 0
     question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
     answers: [
-      { text: "¿Acaso lo dudas?", nextQuestion: 1 },
-      { text: "¿Quién va a ser si no, ¿Fran?", nextQuestion: 2 },
-      { text: "Es Antonio", nextQuestion: 3 },
-      { text: "¡Vaya pregunta!", nextQuestion: 4 }
+      { text: "¿Acaso lo dudas?", nextQuestion: 2 },
+      { text: "¿Quién va a ser si no, ¿Fran?", nextQuestion: 1 },
+      { text: "Antonio", nextQuestion: 3 }
+
     ]
   },
-  {
-    question: "¿Se merece Álvaro una casa gratis en Tulum Country Club?",
+  { // Pregunta 1
+    question: "¿Fran? ¿el que nunca está en su sitio? será broma!",
     answers: [
-      { text: "Yo creo que sí", nextQuestion: null },
-      { text: "Un palacio", nextQuestion: null },
-      { text: "¡Ya te digo!", nextQuestion: null },
+      { text: "Un día fui 3 veces a su sitio y nunca le encontré", nextQuestion: null },
+      { text: "Estaba con su yate", nextQuestion: null },
+      { text: "Estaba dandoles ventas a los brokers", nextQuestion: null },
       { text: "No hay duda", nextQuestion: null }
     ]
   },
-  {
+  { // Pregunta 2
     question: "¿Es Álvaro el puto amo?",
     answers: [
       { text: "Sí", nextQuestion: null },
@@ -28,14 +28,14 @@ const questions = [
       { text: "Sí rotundo", nextQuestion: null }
     ]
   },
-  {
-    question: "Antonio? es broma? si solo trabaja media jornada",
+  { // Pregunta 3
+    question: "Creo que te has equivocado",
     answers: [
-      { text: "Me he equivocado al hacer click", nextQuestion: 1 },
-      { text: "Claro que quería decir Álvaro, lo siento", nextQuestion: null }
+      { text: "Sí, lo siento, se me ha ido la pinza con Antonio", nextQuestion: null },
+      { text: "Lo siento, no volverá a pasar. Siempre es Alvaro", nextQuestion: null }
     ]
   },
-  {
+  { // Pregunta 4
     question: "Pregunta alternativa 2",
     answers: [
       { text: "Respuesta A", nextQuestion: null },

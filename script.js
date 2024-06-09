@@ -1,15 +1,15 @@
 const questions = [
   {
     question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
-    answers: ["Acaso lo dudas", "quien va a ser si no, Fran", "Antonio", "Vaya pregunta"]
+    answers: ["¿Acaso lo dudas?", "¿Quién va a ser si no, ¿Fran?", "¿Antonio?", "Vaya preguntas..."]
   },
   {
-    question: "¿Se merece Alvaro una casa gratis en Tulum Country Club?",
-    answers: ["Yo creo que si", "Un palacio", "ya te digo", "No hay duda"]
+    question: "¿Se merece Álvaro una casa gratis en Tulum Country Club?",
+    answers: ["Yo creo que sí", "Un palacio", "Ya te digo", "No hay duda"]
   },
   {
-    question: "¿Es Alvaro el puto amo?",
-    answers: ["Si", "100% lo es", "Absolutamente", "si rotundo"]
+    question: "¿Es Álvaro el puto amo?",
+    answers: ["Sí", "100% lo es", "Absolutamente", "Sí rotundo"]
   }
 ];
 

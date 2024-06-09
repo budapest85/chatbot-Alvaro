@@ -6,12 +6,12 @@ const questions = [
     answers: [
       { text: "¿Acaso lo dudas?", nextQuestion: 1 },
       { text: "¿Quién va a ser si no, Fran?", nextQuestion: 3 },
-      { text: "Antonio", nextQuestion: 2 },
+      { text: "Antonio", nextQuestion: 1 },
       { text: "¡Vaya pregunta!", nextQuestion: 4 }
     ]
   },
   { // Pregunta 1
-    question: "¿Antonio? Te ha bailado el ratón",
+    question: "¿Antonio? Te has equivocado verdad?" ,
     answers: [
       { text: "Sí perdón, no volverá a pasar", nextQuestion: null },
       { text: "Siempre Alvaro first", nextQuestion: null }

@@ -1,4 +1,4 @@
-const scriptUrl = 'https://script.google.com/macros/s/AKfycbwpEeo6lKrrL33X1Scp2-R12HixDtXGmuD4Pfoz0f7o8M_hbUv5vJmm9d0RDndIeW-K/exec'; // Reemplaza con la URL del script de Google Apps
+const proxyUrl = '/api/proxy'; // URL del proxy en Netlify
 
 const questions = [
   {
@@ -97,7 +97,7 @@ async function saveAnswerToGoogleSheets(question, answer) {
   const data = { question: question, answer: answer };
   
   try {
-    const response = await fetch(scriptUrl, {
+    const response = await fetch(proxyUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -119,7 +119,7 @@ async function saveEmail(email) {
   const data = { email: email };
   
   try {
-    const response = await fetch(scriptUrl, {
+    const response = await fetch(proxyUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

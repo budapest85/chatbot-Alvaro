@@ -29,10 +29,10 @@ const questions = [
     ]
   },
   {
-    question: "Pregunta alternativa 1",
+    question: "Antonio? es broma? si solo trabaja media jornada",
     answers: [
-      { text: "Respuesta 1", nextQuestion: null },
-      { text: "Respuesta 2", nextQuestion: null }
+      { text: "Me he equivocado al hacer click", nextQuestion: null },
+      { text: "Claro que quería decir Álvaro, lo siento", nextQuestion: null }
     ]
   },
   {

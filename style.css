@@ -93,8 +93,6 @@ body {
   flex-shrink: 0;
   text-align: center;
   white-space: nowrap;
-  width: fit-content;  /* Ajustar el ancho al contenido */
-  align-self: flex-start;  /* Alinear al inicio */
 }
 
 .answer-button:hover {

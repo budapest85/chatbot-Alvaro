@@ -1,15 +1,15 @@
 const questions = [
   {
-    question: "¿Es Álvaro el causante de todo el aumento de venta Online?",
-    answers: ["¿Acaso lo dudas?", "¿Quién va a ser si no?, ¿Fran", "¿Antonio?", "Vaya preguntas..."]
+    question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
+    answers: ["Acaso lo dudas", "quien va a ser si no, Fran", "Antonio", "Vaya pregunta"]
   },
   {
     question: "¿Se merece Alvaro una casa gratis en Tulum Country Club?",
-    answers: ["Yo creo que sí", "Un palacio", "Ya te digo", "No hay duda"]
+    answers: ["Yo creo que si", "Un palacio", "ya te digo", "No hay duda"]
   },
   {
-    question: "¿Es Álvaro el puto amo?",
-    answers: ["Sí", "100% lo es", "Absolutamente", "Sí rotundo"]
+    question: "¿Es Alvaro el puto amo?",
+    answers: ["Si", "100% lo es", "Absolutamente", "si rotundo"]
   }
 ];
 
@@ -53,8 +53,8 @@ function addMessageToChat(message, sender, answers) {
 }
 
 async function saveAnswerToGoogleSheets(question, answer) {
-  const sheetId = 'YOUR_SHEET_ID'; // Reemplaza con tu ID de la hoja de Google
-  const apiKey = 'YOUR_API_KEY'; // Reemplaza con tu clave de API
+  const sheetId = '1SUFNHZBTs6aNkOUS-MjMgMEP2h0XCVzhleWKvBv9kaQ'; // Reemplaza con tu ID de la hoja de Google
+  const apiKey = 'AIzaSyB0LcBVw0dR2DXWBIoXoH04OhKalAhmq60'; // Reemplaza con tu clave de API
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/A1:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
 
   const response = await fetch(url, {

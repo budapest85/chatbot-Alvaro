@@ -15,8 +15,7 @@ const questions = [
     answers: [
       { text: "Un día fui 3 veces a su sitio y nunca le encontré", nextQuestion: null },
       { text: "Estaba con su yate", nextQuestion: null },
-      { text: "Estaba dandoles ventas a los brokers", nextQuestion: null },
-      { text: "No hay duda", nextQuestion: null }
+      { text: "Estaba dándoles ventas a los brokers", nextQuestion: null }
     ]
   },
   { // Pregunta 2

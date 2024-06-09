@@ -43,18 +43,19 @@ body {
 .message {
   margin-bottom: 20px;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
 }
 
 .message.user {
-  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .message p {
   display: inline-block;
   padding: 10px 15px;
   border-radius: 10px;
-  max-width: 70%;
+  max-width: 100%;
   margin: 0;
 }
 
@@ -78,6 +79,7 @@ body {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .answer-button {

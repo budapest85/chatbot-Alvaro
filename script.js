@@ -1,4 +1,4 @@
-const scriptUrl = 'https://script.google.com/macros/s/AKfycbwGOiPCEbQtuGGM3LLjuvtMJ9rFf3YDyD-SnrOnPZ91nt9mctc1v_WRNd_IKHWsQCbb/exec'; // Reemplaza con la URL del script de Google Apps
+const scriptUrl = 'https://script.google.com/macros/s/AKfycbyFg0pd0aMCpoUQe7N3TNn9i_4NR_AB6Frli0RiChc9oDJhXkSjCyOmWXM9oH2dXnmk/exec'; // Reemplaza con la URL del script de Google Apps
 
 const questions = [
   {
@@ -98,7 +98,10 @@ async function saveAnswerToGoogleSheets(question, answer) {
   
   try {
     const response = await fetch(url, {
-      method: 'GET'
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
     if (response.ok) {
       console.log('Respuesta guardada en Google Sheets');
@@ -116,7 +119,10 @@ async function saveEmail(email) {
   
   try {
     const response = await fetch(url, {
-      method: 'GET'
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
     if (response.ok) {
       console.log('Correo electrónico guardado en Google Sheets');

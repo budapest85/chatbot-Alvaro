@@ -54,4 +54,97 @@ function addMessageToChat(message, sender, answers) {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-functio
+function displayEmailInput() {
+  const emailInputContainer = document.createElement('div');
+  emailInputContainer.classList.add('message', 'bot');
+
+  const emailInputLabel = document.createElement('p');
+  emailInputLabel.innerText = "Gracias por responder. Por favor, ingresa tu correo electrónico:";
+  emailInputContainer.appendChild(emailInputLabel);
+
+  const emailInput = document.createElement('input');
+  emailInput.type = 'email';
+  emailInput.placeholder = 'Tu correo electrónico';
+  emailInput.classList.add('email-input');
+  emailInputContainer.appendChild(emailInput);
+
+  const submitButton = document.createElement('button');
+  submitButton.innerText = 'Enviar';
+  submitButton.classList.add('submit-button');
+  submitButton.onclick = async () => {
+    const email = emailInput.value;
+    if (validateEmail(email)) {
+      await saveEmail(email);
+      addMessageToChat('Correo electrónico enviado. ¡Gracias!', 'bot');
+      emailInputContainer.remove();
+    } else {
+      alert('Por favor, ingresa un correo electrónico válido.');
+    }
+  };
+  emailInputContainer.appendChild(submitButton);
+
+  chatBox.appendChild(emailInputContainer);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+async function saveAnswerToGoogleSheets(question, answer) {
+  console.log('Guardando respuesta:', question, answer);
+  const data = { question: question, answer: answer };
+  
+  try {
+    const response = await fetch(scriptUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    if (response.ok) {
+      console.log('Respuesta guardada en Google Sheets');
+    } else {
+      console.error('Error al guardar la respuesta', await response.text());
+    }
+  } catch (error) {
+    console.error('Fetch failed:', error);
+  }
+}
+
+async function saveEmail(email) {
+  console.log('Guardando correo electrónico:', email);
+  const data = { email: email };
+  
+  try {
+    const response = await fetch(scriptUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    if (response.ok) {
+      console.log('Correo electrónico guardado en Google Sheets');
+    } else {
+      console.error('Error al guardar el correo electrónico', await response.text());
+    }
+  } catch (error) {
+    console.error('Fetch failed:', error);
+  }
+}
+
+async function saveAnswer(questionIndex, answer) {
+  const question = questions[questionIndex].question;
+  await saveAnswerToGoogleSheets(question, answer);
+}
+
+function displayQuestion(index) {
+  const questionData = questions[index];
+  addMessageToChat(questionData.question, 'bot', questionData.answers);
+}
+
+// Inicializar con la primera pregunta
+displayQuestion(currentQuestionIndex);

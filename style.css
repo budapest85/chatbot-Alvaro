@@ -13,7 +13,7 @@ body {
 
 #chat-container {
   width: 400px;
-  background: #fff;
+  background: #f0f0f0;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 10px;
   overflow: hidden;
@@ -22,13 +22,12 @@ body {
 }
 
 #header {
-  background: #007bff;
   padding: 10px;
   text-align: center;
 }
 
 #logo {
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
 }
 
@@ -64,10 +63,23 @@ body {
   background: #fff;
   color: #333;
   border: 1px solid #ddd;
+  position: relative;
+}
+
+.message.bot p::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #fff;
 }
 
 .message.user p {
-  background: #007bff;
+  background: #333;
   color: #fff;
 }
 
@@ -78,7 +90,7 @@ body {
   padding: 10px;
 }
 
-#input-container button {
+.answer-button {
   margin: 5px 0;
   padding: 10px;
   background: #333;
@@ -86,13 +98,21 @@ body {
   color: #fff;
   cursor: pointer;
   border-radius: 5px;
-  width: 100%;
+  width: auto;
 }
 
-#input-container button:hover {
+.answer-button:hover {
   background: #555;
 }
 
-#input-container button:focus {
+.answer-button:focus {
   outline: none;
+}
+
+.answer-container {
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
 }

@@ -1,4 +1,4 @@
-const scriptUrl = 'https://script.google.com/macros/s/AKfycbzRguxtIO3d65zEItG3geU2fGg16v2yHGJZ7Fgrjdw-dsEp6Zj-5F11OQ5IlIKhb5y-/exec'; // Reemplaza con la URL del script de Google Apps
+const scriptUrl = 'https://script.google.com/macros/s/AKfycbxnwZgq3v9lz_kR8Q30h5-HhMSSo1uC7wS0g3OYH0_IAMHuNeM2yjYqTmjC2O18I7l-/exec'; // Reemplaza con la URL del script de Google Apps
 
 const questions = [
   {

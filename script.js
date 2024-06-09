@@ -53,11 +53,12 @@ function displayQuestion(index) {
   const questionData = questions[index];
   addMessageToChat(questionData.question, 'bot');
 
-  const inputContainer = document.getElementById('input-container');
-  inputContainer.innerHTML = ''; // Limpiar respuestas anteriores
+  const inputContainer = document.createElement('div');
+  inputContainer.classList.add('answer-container');
 
   questionData.answers.forEach(answer => {
     const answerButton = document.createElement('button');
+    answerButton.classList.add('answer-button');
     answerButton.innerText = answer;
     answerButton.onclick = () => {
       addMessageToChat(answer, 'user');
@@ -71,6 +72,7 @@ function displayQuestion(index) {
     inputContainer.appendChild(answerButton);
   });
 
+  chatBox.appendChild(inputContainer);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 

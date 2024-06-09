@@ -1,21 +1,21 @@
 const questions = [
   {
-    question: "¿Es Alvaro el causante de todo el aumento de venta directa?",
-    answers: ["Acaso lo dudas", "¿Quién va a ser si no, Fran?", "Antonio", "Vaya pregunta"]
+    question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
+    answers: ["¿Acaso lo dudas?", "¿Quién va a ser si no, Fran?", "Antonio", "¡Vaya pregunta!"]
   },
   {
-    question: "¿Se merece Alvaro una casa gratis en Tulum Country Club?",
-    answers: ["Yo creo que sí", "Un palacio", "Ya te digo", "No hay duda"]
+    question: "¿Se merece Álvaro una casa gratis en Tulum Country Club?",
+    answers: ["Yo creo que sí", "Un palacio", "¡Ya te digo!", "No hay duda"]
   },
   {
-    question: "¿Es Alvaro el puto amo?",
+    question: "¿Es Álvaro el puto amo?",
     answers: ["Sí", "100% lo es", "Absolutamente", "Sí rotundo"]
   }
 ];
 
 let currentQuestionIndex = 0;
 const chatBox = document.getElementById('chat-box');
-const scriptUrl = '1SUFNHZBTs6aNkOUS-MjMgMEP2h0XCVzhleWKvBv9kaQ'; // Reemplaza con la URL del script de Google Apps
+const scriptUrl = 'YOUR_SCRIPT_URL'; // Reemplaza con la URL del script de Google Apps
 
 function addMessageToChat(message, sender, answers) {
   const messageElement = document.createElement('div');
@@ -140,4 +140,3 @@ function displayQuestion(index) {
 
 // Inicializar con la primera pregunta
 displayQuestion(currentQuestionIndex);
-

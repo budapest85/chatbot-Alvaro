@@ -2,16 +2,45 @@ const proxyUrl = '/api/proxy'; // URL del proxy en Netlify
 
 const questions = [
   {
-    question: "¿Es Álvaro el causante de todo el aumento de venta online?",
-    answers: ["¿Acaso lo dudas?", "¿Quién va a ser si no, ¿Fran?", "¿Antonio?", "¡Vaya pregunta...!"]
+    question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
+    answers: [
+      { text: "¿Acaso lo dudas?", nextQuestion: 1 },
+      { text: "¿Quién va a ser si no, Fran?", nextQuestion: 2 },
+      { text: "Antonio", nextQuestion: 3 },
+      { text: "¡Vaya pregunta!", nextQuestion: 4 }
+    ]
   },
   {
     question: "¿Se merece Álvaro una casa gratis en Tulum Country Club?",
-    answers: ["Yo creo que sí", "Un palacio", "¡Ya te digo!", "No hay duda"]
+    answers: [
+      { text: "Yo creo que sí", nextQuestion: null },
+      { text: "Un palacio", nextQuestion: null },
+      { text: "¡Ya te digo!", nextQuestion: null },
+      { text: "No hay duda", nextQuestion: null }
+    ]
   },
   {
     question: "¿Es Álvaro el puto amo?",
-    answers: ["Sí", "100% lo es", "Absolutamente", "Sí rotundo"]
+    answers: [
+      { text: "Sí", nextQuestion: null },
+      { text: "100% lo es", nextQuestion: null },
+      { text: "Absolutamente", nextQuestion: null },
+      { text: "Sí rotundo", nextQuestion: null }
+    ]
+  },
+  {
+    question: "Pregunta alternativa 1",
+    answers: [
+      { text: "Respuesta 1", nextQuestion: null },
+      { text: "Respuesta 2", nextQuestion: null }
+    ]
+  },
+  {
+    question: "Pregunta alternativa 2",
+    answers: [
+      { text: "Respuesta A", nextQuestion: null },
+      { text: "Respuesta B", nextQuestion: null }
+    ]
   }
 ];
 
@@ -33,12 +62,12 @@ function addMessageToChat(message, sender, answers) {
     answers.forEach(answer => {
       const answerButton = document.createElement('button');
       answerButton.classList.add('answer-button');
-      answerButton.innerText = answer;
+      answerButton.innerText = answer.text;
       answerButton.onclick = async () => {
-        addMessageToChat(answer, 'user');
-        await saveAnswer(currentQuestionIndex, answer);
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
+        addMessageToChat(answer.text, 'user');
+        await saveAnswer(currentQuestionIndex, answer.text);
+        if (answer.nextQuestion !== null) {
+          currentQuestionIndex = answer.nextQuestion;
           displayQuestion(currentQuestionIndex);
         } else {
           displayEmailInput();
@@ -78,7 +107,7 @@ function displayEmailInput() {
       addMessageToChat('Correo electrónico enviado. ¡Gracias!', 'bot');
       emailInputContainer.remove();
     } else {
-      alert('Por favor, ingresa un correo electrónico válido y dale las gracias a Álvaro por ser tan genial');
+      alert('Por favor, ingresa un correo electrónico válido.');
     }
   };
   emailInputContainer.appendChild(submitButton);
@@ -88,14 +117,14 @@ function displayEmailInput() {
 }
 
 function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const re = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
   return re.test(email);
 }
 
 async function saveAnswerToGoogleSheets(question, answer) {
   console.log('Guardando respuesta:', question, answer);
   const data = { question: question, answer: answer };
-  
+
   try {
     const response = await fetch(proxyUrl, {
       method: 'POST',
@@ -117,7 +146,7 @@ async function saveAnswerToGoogleSheets(question, answer) {
 async function saveEmail(email) {
   console.log('Guardando correo electrónico:', email);
   const data = { email: email };
-  
+
   try {
     const response = await fetch(proxyUrl, {
       method: 'POST',

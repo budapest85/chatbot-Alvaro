@@ -62,17 +62,4 @@ function displayQuestion(index) {
     answerButton.onclick = () => {
       addMessageToChat(answer, 'user');
       saveAnswer(index, answer);
-      if (index < questions.length - 1) {
-        displayQuestion(index + 1);
-      } else {
-        addMessageToChat('Gracias por responder', 'bot');
-      }
-    };
-    inputContainer.appendChild(answerButton);
-  });
-
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// Inicializar con la primera pregunta
-displayQuestion(currentQuestionIndex);
+      if (index < questions.length

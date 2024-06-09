@@ -31,7 +31,7 @@ const questions = [
   {
     question: "Antonio? es broma? si solo trabaja media jornada",
     answers: [
-      { text: "Me he equivocado al hacer click", nextQuestion: null },
+      { text: "Me he equivocado al hacer click", nextQuestion: 1 },
       { text: "Claro que quería decir Álvaro, lo siento", nextQuestion: null }
     ]
   },

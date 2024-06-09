@@ -1,6 +1,6 @@
 const questions = [
   {
-    question: "¿Es Alvaro el causante de todo el aumento de venta directa?",
+    question: "¿Es Álvaro el causante de todo el aumento de venta Online?",
     answers: ["¿Acaso lo dudas?", "¿Quién va a ser si no?, ¿Fran", "¿Antonio?", "Vaya preguntas..."]
   },
   {

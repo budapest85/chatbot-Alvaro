@@ -4,7 +4,7 @@ const questions = [
   { // Pregunta 0
     question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
     answers: [
-      { text: "¿Acaso lo dudas?", nextQuestion: 1, image: "https://link-a-tu-imagen.com/imagen.jpg" },
+      { text: "¿Acaso lo dudas?", nextQuestion: 1 },
       { text: "¿Quién va a ser si no, Fran?", nextQuestion: 2 },
       { text: "Antonio", nextQuestion: 3 },
       { text: "¡Vaya pregunta!", nextQuestion: 4 }
@@ -47,21 +47,13 @@ const questions = [
 let currentQuestionIndex = 0;
 const chatBox = document.getElementById('chat-box');
 
-function addMessageToChat(message, sender, answers, image) {
+function addMessageToChat(message, sender, answers) {
   const messageElement = document.createElement('div');
   messageElement.classList.add('message', sender);
 
   const messageText = document.createElement('p');
   messageText.innerText = message;
   messageElement.appendChild(messageText);
-
-  if (image) {
-    const imageElement = document.createElement('img');
-    imageElement.src = image;
-    imageElement.alt = "Respuesta imagen";
-    imageElement.classList.add('response-image'); // Puedes agregar una clase CSS para estilos
-    messageElement.appendChild(imageElement);
-  }
 
   if (answers) {
     const answerContainer = document.createElement('div');
@@ -79,9 +71,6 @@ function addMessageToChat(message, sender, answers, image) {
           displayQuestion(currentQuestionIndex);
         } else {
           displayEmailInput();
-        }
-        if (answer.image) {
-          addMessageToChat("", "bot", null, answer.image);
         }
       };
       answerContainer.appendChild(answerButton);
@@ -128,4 +117,63 @@ function displayEmailInput() {
 }
 
 function validateEmail(email) {
-  const re = /^[^\s@]+
+  const re = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+  return re.test(email);
+}
+
+async function saveAnswerToGoogleSheets(question, answer) {
+  console.log('Guardando respuesta:', question, answer);
+  const data = { question: question, answer: answer };
+
+  try {
+    const response = await fetch(proxyUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    if (response.ok) {
+      console.log('Respuesta guardada en Google Sheets');
+    } else {
+      console.error('Error al guardar la respuesta', await response.text());
+    }
+  } catch (error) {
+    console.error('Fetch failed:', error);
+  }
+}
+
+async function saveEmail(email) {
+  console.log('Guardando correo electrónico:', email);
+  const data = { email: email };
+
+  try {
+    const response = await fetch(proxyUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    if (response.ok) {
+      console.log('Correo electrónico guardado en Google Sheets');
+    } else {
+      console.error('Error al guardar el correo electrónico', await response.text());
+    }
+  } catch (error) {
+    console.error('Fetch failed:', error);
+  }
+}
+
+async function saveAnswer(questionIndex, answer) {
+  const question = questions[questionIndex].question;
+  await saveAnswerToGoogleSheets(question, answer);
+}
+
+function displayQuestion(index) {
+  const questionData = questions[index];
+  addMessageToChat(questionData.question, 'bot', questionData.answers);
+}
+
+// Inicializar con la primera pregunta
+displayQuestion(currentQuestionIndex);

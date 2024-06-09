@@ -15,7 +15,7 @@ const questions = [
 
 let currentQuestionIndex = 0;
 const chatBox = document.getElementById('chat-box');
-const scriptUrl = 'https://script.google.com/macros/s/AKfycbxjYdqEhoouR8RYkXAX7HqjdVkuRlHej7KLDn2clTj2e0gv0l2TB0DbHag__ciLM-2_/exec'; // Reemplaza con la URL del script de Google Apps
+const scriptUrl = 'https://script.google.com/macros/s/AKfycbzQLwp7Frs9IJwGXQ6oDh1crAxmDKKh0qSPPlic1qmEPO-wJidp4OZt_1I_gZYLm1u1/exec'; // Reemplaza con la URL del script de Google Apps
 
 function addMessageToChat(message, sender, answers) {
   const messageElement = document.createElement('div');

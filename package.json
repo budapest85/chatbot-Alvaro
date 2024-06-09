@@ -1,0 +1,15 @@
+{
+  "name": "chatbot-alvaro",
+  "version": "1.0.0",
+  "description": "Chatbot para guardar respuestas en Google Sheets",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

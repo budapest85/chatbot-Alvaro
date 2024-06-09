@@ -39,6 +39,33 @@
     const chatBox = document.getElementById('chat-box');
     const nextQuestionButton = document.getElementById('next-question');
     
+    async function saveAnswerToGoogleSheets(question, answer) {
+      const sheetId = '1SUFNHZBTs6aNkOUS-MjMgMEP2h0XCVzhleWKvBv9kaQ'; // Reemplaza con tu ID de la hoja de Google
+      const apiKey = 'AIzaSyB0LcBVw0dR2DXWBIoXoH04OhKalAhmq60'; // Reemplaza con tu clave de API
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/A1:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          values: [[question, answer]]
+        })
+      });
+
+      if (response.ok) {
+        console.log('Respuesta guardada en Google Sheets');
+      } else {
+        console.error('Error al guardar la respuesta', await response.text());
+      }
+    }
+
+    function saveAnswer(questionIndex, answer) {
+      const question = questions[questionIndex].question;
+      saveAnswerToGoogleSheets(question, answer);
+    }
+
     function displayQuestion(index) {
       const questionData = questions[index];
       const questionElement = document.createElement('div');
@@ -54,7 +81,6 @@
             displayQuestion(index + 1);
           } else {
             alert('Gracias por responder');
-            // Puedes llamar a una función para enviar las respuestas a Google Sheets aquí
           }
         };
         answersElement.appendChild(answerButton);
@@ -63,10 +89,6 @@
       chatBox.innerHTML = '';
       chatBox.appendChild(questionElement);
       chatBox.appendChild(answersElement);
-    }
-
-    function saveAnswer(questionIndex, answer) {
-      console.log(`Pregunta: ${questions[questionIndex].question} - Respuesta: ${answer}`);
     }
 
     nextQuestionButton.onclick = () => {

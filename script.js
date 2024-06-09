@@ -53,8 +53,8 @@ function addMessageToChat(message, sender, answers) {
 }
 
 async function saveAnswerToGoogleSheets(question, answer) {
-  const sheetId = '1SUFNHZBTs6aNkOUS-MjMgMEP2h0XCVzhleWKvBv9kaQ'; // Reemplaza con tu ID de la hoja de Google
-  const apiKey = 'AIzaSyB0LcBVw0dR2DXWBIoXoH04OhKalAhmq60'; // Reemplaza con tu clave de API
+  const sheetId = 'YOUR_SHEET_ID'; // Reemplaza con tu ID de la hoja de Google
+  const apiKey = 'YOUR_API_KEY'; // Reemplaza con tu clave de API
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/A1:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
 
   const response = await fetch(url, {
@@ -70,4 +70,19 @@ async function saveAnswerToGoogleSheets(question, answer) {
   if (response.ok) {
     console.log('Respuesta guardada en Google Sheets');
   } else {
-    console.error('Error al guardar la respuesta', await r
+    console.error('Error al guardar la respuesta', await response.text());
+  }
+}
+
+function saveAnswer(questionIndex, answer) {
+  const question = questions[questionIndex].question;
+  saveAnswerToGoogleSheets(question, answer);
+}
+
+function displayQuestion(index) {
+  const questionData = questions[index];
+  addMessageToChat(questionData.question, 'bot', questionData.answers);
+}
+
+// Inicializar con la primera pregunta
+displayQuestion(currentQuestionIndex);

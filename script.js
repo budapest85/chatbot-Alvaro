@@ -52,8 +52,8 @@ function addMessageToChat(message, sender, answers) {
 }
 
 async function saveAnswerToGoogleSheets(question, answer) {
-  const sheetId = 'YOUR_SHEET_ID'; // Reemplaza con tu ID de la hoja de Google
-  const apiKey = 'YOUR_API_KEY'; // Reemplaza con tu clave de API
+  const sheetId = '1SUFNHZBTs6aNkOUS-MjMgMEP2h0XCVzhleWKvBv9kaQ'; // Reemplaza con tu ID de la hoja de Google
+  const apiKey = 'AIzaSyB0LcBVw0dR2DXWBIoXoH04OhKalAhmq60'; // Reemplaza con tu clave de API
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/A1:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
 
   const response = await fetch(url, {

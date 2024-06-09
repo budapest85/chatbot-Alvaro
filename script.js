@@ -29,7 +29,7 @@ const questions = [
   { // Pregunta 3
     question: "¿Fran? ¿el que nunca está en su sitio?",
     answers: [
-      { text: "Estará en el yate", nextQuestion: null },
+      { text: "Estará en el yate", nextQuestion: 2, image: "https://github.com/budapest85/chatbot-Alvaro/blob/main/giphy.gif?raw=true" },
       { text: "Le está dando ventas a los brokers", nextQuestion: null }
     ]
   },

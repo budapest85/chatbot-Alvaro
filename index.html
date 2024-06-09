@@ -1,103 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chatbot</title>
-  <style>
-    #chat-container {
-      width: 300px;
-      margin: 0 auto;
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
-    #chat-box {
-      margin-bottom: 10px;
-    }
-    button {
-      margin: 5px;
-    }
-  </style>
+  <title>Chatbot Mejorado</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <div id="chat-container">
     <div id="chat-box"></div>
-    <button id="next-question">Siguiente Pregunta</button>
+    <div id="input-container">
+      <!-- Aquí no necesitamos un input de texto ya que las respuestas son botones -->
+    </div>
   </div>
-  
-  <script>
-    const questions = [
-      {
-        question: "¿Cuál es tu color favorito?",
-        answers: ["Rojo", "Azul", "Verde", "Amarillo"]
-      },
-      {
-        question: "¿Cuál es tu comida favorita?",
-        answers: ["Pizza", "Hamburguesa", "Ensalada", "Pasta"]
-      }
-    ];
-
-    let currentQuestionIndex = 0;
-    const chatBox = document.getElementById('chat-box');
-    const nextQuestionButton = document.getElementById('next-question');
-    
-    async function saveAnswerToGoogleSheets(question, answer) {
-      const sheetId = '1SUFNHZBTs6aNkOUS-MjMgMEP2h0XCVzhleWKvBv9kaQ'; // Reemplaza con tu ID de la hoja de Google
-      const apiKey = 'AIzaSyB0LcBVw0dR2DXWBIoXoH04OhKalAhmq60'; // Reemplaza con tu clave de API
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/A1:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
-
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          values: [[question, answer]]
-        })
-      });
-
-      if (response.ok) {
-        console.log('Respuesta guardada en Google Sheets');
-      } else {
-        console.error('Error al guardar la respuesta', await response.text());
-      }
-    }
-
-    function saveAnswer(questionIndex, answer) {
-      const question = questions[questionIndex].question;
-      saveAnswerToGoogleSheets(question, answer);
-    }
-
-    function displayQuestion(index) {
-      const questionData = questions[index];
-      const questionElement = document.createElement('div');
-      questionElement.innerText = questionData.question;
-
-      const answersElement = document.createElement('div');
-      questionData.answers.forEach(answer => {
-        const answerButton = document.createElement('button');
-        answerButton.innerText = answer;
-        answerButton.onclick = () => {
-          saveAnswer(index, answer);
-          if (index < questions.length - 1) {
-            displayQuestion(index + 1);
-          } else {
-            alert('Gracias por responder');
-          }
-        };
-        answersElement.appendChild(answerButton);
-      });
-
-      chatBox.innerHTML = '';
-      chatBox.appendChild(questionElement);
-      chatBox.appendChild(answersElement);
-    }
-
-    nextQuestionButton.onclick = () => {
-      displayQuestion(currentQuestionIndex);
-      currentQuestionIndex++;
-    };
-
-    // Inicializar con la primera pregunta
-    displayQuestion(currentQuestionIndex);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

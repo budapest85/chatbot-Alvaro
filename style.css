@@ -106,6 +106,37 @@ body {
   outline: none;
 }
 
+.email-input {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: calc(100% - 20px); /* Ajustar el ancho */
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.submit-button {
+  margin-top: 10px;
+  padding: 10px;
+  background: #333;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.submit-button:hover {
+  background: #555;
+}
+
+.submit-button:focus {
+  outline: none;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
   body {
@@ -125,11 +156,4 @@ body {
 
   .message p {
     padding: 8px 12px;
-    font-size: 14px;
-  }
-
-  .answer-button {
-    padding: 8px;
-    font-size: 14px;
-  }
-}
+    font

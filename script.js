@@ -15,7 +15,7 @@ const questions = [
 
 let currentQuestionIndex = 0;
 const chatBox = document.getElementById('chat-box');
-const scriptUrl = '1SUFNHZBTs6aNkOUS-MjMgMEP2h0XCVzhleWKvBv9kaQ'; // Reemplaza con la URL del script de Google Apps
+const scriptUrl = 'https://script.google.com/macros/s/AKfycbyVEaHl1Lm_zBuS-chy6xLl8qzaTmgkkwq6-JL4smaDXCvaLW8hpHBbV5eI3c_taZ_U/exec'; // Reemplaza con la URL del script de Google Apps
 
 function addMessageToChat(message, sender, answers) {
   const messageElement = document.createElement('div');

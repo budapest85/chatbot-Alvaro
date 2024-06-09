@@ -2,7 +2,7 @@ const proxyUrl = '/api/proxy'; // URL del proxy en Netlify
 
 const questions = [
   {
-    question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
+    question: "¿Es Álvaro el causante de todo el aumento de venta online?",
     answers: ["¿Acaso lo dudas?", "¿Quién va a ser si no, ¿Fran?", "¿Antonio=?", "¡Vaya pregunta...!"]
   },
   {

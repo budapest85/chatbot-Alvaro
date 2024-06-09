@@ -4,7 +4,7 @@ const questions = [
   { // Pregunta 0
     question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
     answers: [
-      { text: "¿Acaso lo dudas?", nextQuestion: 1 },
+      { text: "¿Acaso lo dudas?", nextQuestion: null },
       { text: "¿Quién va a ser si no, Fran?", nextQuestion: 3 },
       { text: "Antonio", nextQuestion: 1 },
       { text: "¡Vaya pregunta!", nextQuestion: 4 }
@@ -35,10 +35,10 @@ const questions = [
     ]
   },
   { // Pregunta 4
-    question: "Pregunta alternativa 2",
+    question: "Eres sabio",
     answers: [
-      { text: "Respuesta A", nextQuestion: null },
-      { text: "Respuesta B", nextQuestion: null }
+      { text: "A", nextQuestion: null },
+      { text: "B", nextQuestion: null }
     ]
   }
 ];

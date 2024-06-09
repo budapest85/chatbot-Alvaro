@@ -75,9 +75,10 @@
             { // Pregunta 0
                 question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
                 answers: [
-                    { text: "¿Acaso lo dudas?", nextQuestion: 1, image: "https://github.com/budapest85/chatbot-Alvaro/blob/main/giphy.gif?raw=true" },
-                    { text: "Fran", nextQuestion: 1 },
-                    { text: "Antonio", nextQuestion: 3 }
+                    { text: "¿Acaso lo dudas?", nextQuestion: 1, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/giphy.gif" },
+                    { text: "¿Quién va a ser si no, Fran?", nextQuestion: 2 },
+                    { text: "Antonio", nextQuestion: 3 },
+                    { text: "¡Vaya pregunta!", nextQuestion: 4 }
                 ]
             },
             { // Pregunta 1

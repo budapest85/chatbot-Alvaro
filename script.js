@@ -5,8 +5,8 @@ const questions = [
     question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
     answers: [
       { text: "¿Acaso lo dudas?", nextQuestion: 1 },
-      { text: "¿Quién va a ser si no, Fran?", nextQuestion: 2 },
-      { text: "Antonio", nextQuestion: 3 },
+      { text: "¿Quién va a ser si no, ¿Fran?", nextQuestion: 2 },
+      { text: "Es Antonio", nextQuestion: 3 },
       { text: "¡Vaya pregunta!", nextQuestion: 4 }
     ]
   },

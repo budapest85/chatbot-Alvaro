@@ -4,7 +4,7 @@ const questions = [
   { // Pregunta 0
     question: "¿Qué tipo de propiedad buscas?",
     answers: [
-      { text: "¿Un apartamento?", nextQuestion: 2, image: "https://github.com/budapest85/chatbot-Alvaro/blob/main/giphy.gif?raw=true" },
+      { text: "¿Un apartamento?", nextQuestion: 2, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/casa.gif" },
       { text: "¿Una villa?", nextQuestion: 3 },
       { text: "Un lote condominal", nextQuestion: 1 },
       { text: "No estoy seguro", nextQuestion: 4 }

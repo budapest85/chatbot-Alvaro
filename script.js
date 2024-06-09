@@ -13,14 +13,14 @@ const questions = [
   { // Pregunta 1
     question: "¿Vale, quieres un lote, y sabes cuánto estás dispuesto a invertir?",
     answers: [
-      { text: "menos de un millón de dólares", nextQuestion: null },
+      { text: "Menos de un millón de dólares", nextQuestion: null },
       { text: "Más de1 millón de dólares", nextQuestion: null }
     ]
   },
   { // Pregunta 2
     question: "¿Buscas ambiente familiar?",
     answers: [
-      { text: "Sí, buaco zonas comunes", nextQuestion: null },
+      { text: "Sí, busco zonas comunes", nextQuestion: null },
       { text: "Me interesa mucho el deporte", nextQuestion: null },
       { text: "Solo busco invertir", nextQuestion: null },
       { text: "Busco una segunda residencia", nextQuestion: null }

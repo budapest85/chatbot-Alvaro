@@ -39,7 +39,7 @@ function addMessageToChat(message, sender, answers) {
         if (currentQuestionIndex < questions.length) {
           displayQuestion(currentQuestionIndex);
         } else {
-          addMessageToChat('Gracias por responder', 'bot');
+          displayEmailInput();
         }
       };
       answerContainer.appendChild(answerButton);
@@ -52,9 +52,47 @@ function addMessageToChat(message, sender, answers) {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
+function displayEmailInput() {
+  const emailInputContainer = document.createElement('div');
+  emailInputContainer.classList.add('message', 'bot');
+
+  const emailInputLabel = document.createElement('p');
+  emailInputLabel.innerText = "Gracias por responder. Por favor, ingresa tu correo electrónico:";
+  emailInputContainer.appendChild(emailInputLabel);
+
+  const emailInput = document.createElement('input');
+  emailInput.type = 'email';
+  emailInput.placeholder = 'Tu correo electrónico';
+  emailInput.classList.add('email-input');
+  emailInputContainer.appendChild(emailInput);
+
+  const submitButton = document.createElement('button');
+  submitButton.innerText = 'Enviar';
+  submitButton.classList.add('submit-button');
+  submitButton.onclick = () => {
+    const email = emailInput.value;
+    if (validateEmail(email)) {
+      saveEmail(email);
+      addMessageToChat('Correo electrónico enviado. ¡Gracias!', 'bot');
+      emailInputContainer.remove();
+    } else {
+      alert('Por favor, ingresa un correo electrónico válido.');
+    }
+  };
+  emailInputContainer.appendChild(submitButton);
+
+  chatBox.appendChild(emailInputContainer);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
 async function saveAnswerToGoogleSheets(question, answer) {
-  const sheetId = '1SUFNHZBTs6aNkOUS-MjMgMEP2h0XCVzhleWKvBv9kaQ'; // Reemplaza con tu ID de la hoja de Google
-  const apiKey = 'AIzaSyB0LcBVw0dR2DXWBIoXoH04OhKalAhmq60'; // Reemplaza con tu clave de API
+  const sheetId = 'YOUR_SHEET_ID'; // Reemplaza con tu ID de la hoja de Google
+  const apiKey = 'YOUR_API_KEY'; // Reemplaza con tu clave de API
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/A1:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
 
   const response = await fetch(url, {
@@ -71,6 +109,28 @@ async function saveAnswerToGoogleSheets(question, answer) {
     console.log('Respuesta guardada en Google Sheets');
   } else {
     console.error('Error al guardar la respuesta', await response.text());
+  }
+}
+
+async function saveEmail(email) {
+  const sheetId = 'YOUR_SHEET_ID'; // Reemplaza con tu ID de la hoja de Google
+  const apiKey = 'YOUR_API_KEY'; // Reemplaza con tu clave de API
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/A1:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      values: [['Email', email]]
+    })
+  });
+
+  if (response.ok) {
+    console.log('Correo electrónico guardado en Google Sheets');
+  } else {
+    console.error('Error al guardar el correo electrónico', await response.text());
   }
 }
 

@@ -51,10 +51,15 @@ function saveAnswer(questionIndex, answer) {
 
 function displayQuestion(index) {
   const questionData = questions[index];
-  addMessageToChat(questionData.question, 'bot');
+  const messageElement = document.createElement('div');
+  messageElement.classList.add('message', 'bot');
 
-  const inputContainer = document.createElement('div');
-  inputContainer.classList.add('answer-container');
+  const questionText = document.createElement('p');
+  questionText.innerText = questionData.question;
+  messageElement.appendChild(questionText);
+
+  const answerContainer = document.createElement('div');
+  answerContainer.classList.add('answer-container');
 
   questionData.answers.forEach(answer => {
     const answerButton = document.createElement('button');
@@ -69,10 +74,11 @@ function displayQuestion(index) {
         addMessageToChat('Gracias por responder', 'bot');
       }
     };
-    inputContainer.appendChild(answerButton);
+    answerContainer.appendChild(answerButton);
   });
 
-  chatBox.appendChild(inputContainer);
+  messageElement.appendChild(answerContainer);
+  chatBox.appendChild(messageElement);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 

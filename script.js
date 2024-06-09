@@ -1,7 +1,7 @@
-  const questions = [
+const questions = [
   {
     question: "¿Es Alvaro el causante de todo el aumento de venta directa?",
-    answers: ["Acaso lo dudas", "quien va a ser si no, Fran", "Antonio", "Vaya pregunta"]
+    answers: ["Acaso lo dudas", "quien va a ser si no, Fran??", "Antonio??", "Vaya pregunta"]
   },
   {
     question: "¿Se merece Alvaro una casa gratis en Tulum Country Club?",
@@ -76,13 +76,4 @@ async function saveAnswerToGoogleSheets(question, answer) {
 
 function saveAnswer(questionIndex, answer) {
   const question = questions[questionIndex].question;
-  saveAnswerToGoogleSheets(question, answer);
-}
-
-function displayQuestion(index) {
-  const questionData = questions[index];
-  addMessageToChat(questionData.question, 'bot', questionData.answers);
-}
-
-// Inicializar con la primera pregunta
-displayQuestion(currentQuestionIndex);
+  saveAnswe

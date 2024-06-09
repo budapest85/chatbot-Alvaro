@@ -6,7 +6,7 @@ const questions = [
     answers: [
       { text: "¿Un apartamento?", nextQuestion: 2, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/casa.gif" },
       { text: "¿Una villa?", nextQuestion: 3, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/playa.gif" },
-      { text: "Un lote condominal", nextQuestion: 1 },
+      { text: "Un lote condominal", nextQuestion: 1, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/playa.gif" },
       { text: "No estoy seguro", nextQuestion: 4 }
     ]
   },

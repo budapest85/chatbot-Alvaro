@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f9;
+  background-color: #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@ body {
 }
 
 #chat-container {
-  width: 350px;
+  width: 400px;
   background: #fff;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 10px;
@@ -55,14 +55,15 @@ body {
 .message p {
   display: inline-block;
   padding: 10px 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   max-width: 70%;
   margin: 0;
 }
 
 .message.bot p {
-  background: #f1f1f1;
+  background: #fff;
   color: #333;
+  border: 1px solid #ddd;
 }
 
 .message.user p {
@@ -81,17 +82,4 @@ body {
   margin: 5px 0;
   padding: 10px;
   background: #333;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 100%;
-}
-
-#input-container button:hover {
-  background: #555;
-}
-
-#input-container button:focus {
-  outline: none;
-}
+  bo

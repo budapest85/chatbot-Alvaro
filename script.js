@@ -1,12 +1,15 @@
 const questions = [
   {
-    question: "¿Cuál es tu color favorito?",
-    answers: ["Rojo", "Azul", "Verde", "Amarillo"]
+    question: "¿Es Alvaro el puto amo?",
+    answers: ["Si", "100% lo es", "No hay dudas", "Absolutamente"]
   },
   {
-    question: "¿Cuál es tu comida favorita?",
-    answers: ["Pizza", "Hamburguesa", "Ensalada", "Pasta"]
-  }
+    question: "¿Se merece Alvaro una casa gratis en Tulum Country Club??",
+    answers: ["Yo creo que si", "Un palacio", "ya te digo", "si"]
+  },
+{
+    question: "¿Es Alvaro el causante de todo el aumento de venta directa?",
+    answers: ["Acaso lo dudas", "quien va a ser si no, Fran?", "Antonio?", "Vaya pregunta"]
 ];
 
 let currentQuestionIndex = 0;

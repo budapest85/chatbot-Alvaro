@@ -4,18 +4,18 @@ const questions = [
   { // Pregunta 0
     question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
     answers: [
-      { text: "¿Acaso lo dudas?", nextQuestion: null },
-      { text: "¿Quién va a ser si no, Fran?", nextQuestion: 3 },
-      { text: "Antonio", nextQuestion: 1 },
-      { text: "¡Vaya pregunta!", nextQuestion: 4 }
+      { text: "¿Acaso lo dudas?", nextQuestion: 3, image: "https://github.com/budapest85/chatbot-Alvaro/blob/main/giphy.gif?raw=true" },
+      { text: "Fran", nextQuestion: 1 },
+      { text: "Antonio", nextQuestion: 2 }
     ]
   },
   { // Pregunta 1
-    question: "¿Antonio? Te has equivocado verdad?" ,
+    question: "¿Se merece Álvaro una casa gratis en Tulum Country Club?",
     answers: [
-      { text: "Sí perdón, no volverá a pasar", nextQuestion: null },
-      { text: "Siempre Alvaro first", nextQuestion: null }
-
+      { text: "Yo creo que sí", nextQuestion: null },
+      { text: "Un palacio", nextQuestion: null },
+      { text: "¡Ya te digo!", nextQuestion: null },
+      { text: "No hay duda", nextQuestion: null }
     ]
   },
   { // Pregunta 2
@@ -28,17 +28,10 @@ const questions = [
     ]
   },
   { // Pregunta 3
-    question: "¿Fran? ¿el que nunca está en su sitio?",
+    question: "Pregunta alternativa 1",
     answers: [
-      { text: "Estará en el yate", nextQuestion: null },
-      { text: "Le está dando ventas a los brokers", nextQuestion: null }
-    ]
-  },
-  { // Pregunta 4
-    question: "Eres sabio",
-    answers: [
-      { text: "A", nextQuestion: null },
-      { text: "B", nextQuestion: null }
+      { text: "Respuesta 1", nextQuestion: null },
+      { text: "Respuesta 2", nextQuestion: null }
     ]
   }
 ];
@@ -46,13 +39,21 @@ const questions = [
 let currentQuestionIndex = 0;
 const chatBox = document.getElementById('chat-box');
 
-function addMessageToChat(message, sender, answers) {
+function addMessageToChat(message, sender, answers, image) {
   const messageElement = document.createElement('div');
   messageElement.classList.add('message', sender);
 
   const messageText = document.createElement('p');
   messageText.innerText = message;
   messageElement.appendChild(messageText);
+
+  if (image) {
+    const imageElement = document.createElement('img');
+    imageElement.src = image;
+    imageElement.alt = "Respuesta imagen";
+    imageElement.classList.add('response-image');
+    messageElement.appendChild(imageElement);
+  }
 
   if (answers) {
     const answerContainer = document.createElement('div');
@@ -65,7 +66,13 @@ function addMessageToChat(message, sender, answers) {
       answerButton.onclick = async () => {
         addMessageToChat(answer.text, 'user');
         await saveAnswer(currentQuestionIndex, answer.text);
-        if (answer.nextQuestion !== null) {
+        if (answer.image) {
+          addMessageToChat("", "bot", null, answer.image);
+          setTimeout(() => {
+            currentQuestionIndex = answer.nextQuestion;
+            displayQuestion(currentQuestionIndex);
+          }, 3000); // Espera 3 segundos antes de mostrar la siguiente pregunta
+        } else if (answer.nextQuestion !== null) {
           currentQuestionIndex = answer.nextQuestion;
           displayQuestion(currentQuestionIndex);
         } else {
@@ -116,7 +123,7 @@ function displayEmailInput() {
 }
 
 function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
 

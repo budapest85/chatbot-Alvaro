@@ -4,7 +4,7 @@ const questions = [
   { // Pregunta 0
     question: "¿Es Álvaro el causante de todo el aumento de venta directa?",
     answers: [
-      { text: "¿Acaso lo dudas?", nextQuestion: 2, image: "https://link-a-tu-imagen.com/imagen.jpg" },
+      { text: "¿Acaso lo dudas?", nextQuestion: 2, image: "https://github.com/budapest85/chatbot-Alvaro/blob/main/giphy.gif?raw=true" },
       { text: "Fran", nextQuestion: 1 },
       { text: "Antonio", nextQuestion: 3 }
 

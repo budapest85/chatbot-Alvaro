@@ -18,7 +18,7 @@ body {
 }
 
 #logo {
-  max-width: 200px;
+  max-width: 200px;  /* Ajustar el tamaño del logo */
   height: auto;
 }
 
@@ -93,6 +93,8 @@ body {
   flex-shrink: 0;
   text-align: center;
   white-space: nowrap;
+  width: fit-content;  /* Ajustar el ancho al contenido */
+  align-self: flex-start;  /* Alinear al inicio */
 }
 
 .answer-button:hover {

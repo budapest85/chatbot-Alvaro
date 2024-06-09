@@ -12,12 +12,38 @@ const questions = [
 let currentQuestionIndex = 0;
 const chatBox = document.getElementById('chat-box');
 
-function addMessageToChat(message, sender) {
+function addMessageToChat(message, sender, answers) {
   const messageElement = document.createElement('div');
   messageElement.classList.add('message', sender);
+
   const messageText = document.createElement('p');
   messageText.innerText = message;
   messageElement.appendChild(messageText);
+
+  if (answers) {
+    const answerContainer = document.createElement('div');
+    answerContainer.classList.add('answer-container');
+
+    answers.forEach(answer => {
+      const answerButton = document.createElement('button');
+      answerButton.classList.add('answer-button');
+      answerButton.innerText = answer;
+      answerButton.onclick = () => {
+        addMessageToChat(answer, 'user');
+        saveAnswer(currentQuestionIndex, answer);
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+          displayQuestion(currentQuestionIndex);
+        } else {
+          addMessageToChat('Gracias por responder', 'bot');
+        }
+      };
+      answerContainer.appendChild(answerButton);
+    });
+
+    messageElement.appendChild(answerContainer);
+  }
+
   chatBox.appendChild(messageElement);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
@@ -51,35 +77,7 @@ function saveAnswer(questionIndex, answer) {
 
 function displayQuestion(index) {
   const questionData = questions[index];
-  const messageElement = document.createElement('div');
-  messageElement.classList.add('message', 'bot');
-
-  const questionText = document.createElement('p');
-  questionText.innerText = questionData.question;
-  messageElement.appendChild(questionText);
-
-  const answerContainer = document.createElement('div');
-  answerContainer.classList.add('answer-container');
-
-  questionData.answers.forEach(answer => {
-    const answerButton = document.createElement('button');
-    answerButton.classList.add('answer-button');
-    answerButton.innerText = answer;
-    answerButton.onclick = () => {
-      addMessageToChat(answer, 'user');
-      saveAnswer(index, answer);
-      if (index < questions.length - 1) {
-        displayQuestion(index + 1);
-      } else {
-        addMessageToChat('Gracias por responder', 'bot');
-      }
-    };
-    answerContainer.appendChild(answerButton);
-  });
-
-  messageElement.appendChild(answerContainer);
-  chatBox.appendChild(messageElement);
-  chatBox.scrollTop = chatBox.scrollHeight;
+  addMessageToChat(questionData.question, 'bot', questionData.answers);
 }
 
 // Inicializar con la primera pregunta

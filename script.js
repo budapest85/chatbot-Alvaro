@@ -192,7 +192,7 @@ function typeWriter(text, i, callback) {
     document.getElementById("intro-text").innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
     setTimeout(function() {
       typeWriter(text, i + 1, callback);
-    }, 50); // Velocidad ajustada a 50ms para mayor rapidez
+    }, 20); // Velocidad ajustada a 50ms para mayor rapidez
   } else if (typeof callback == 'function') {
     setTimeout(callback, 700);
   }
@@ -200,7 +200,7 @@ function typeWriter(text, i, callback) {
 
 // Inicializar con la introducción
 function startIntro() {
-  const introText = "Bienvenido a este chat que te guiar'a para que podamos ofrecerte el producto que mejor se adapta a tus necesidades. Encuentra todo lo que buscas dentro de nuestro residencial Playa Nueva Romana";
+  const introText = "Bienvenido a este chat que te guiar'a para que podamos ofrecerte el producto que mejor se adapta a tus necesidades. Encuentra todo lo que buscas dentro de nuestro residencial <br>Playa Nueva Romana</br>";
   const introElement = document.createElement('div');
   introElement.classList.add('message', 'bot', 'typewriter');
   introElement.innerHTML = '<p id="intro-text"></p>';

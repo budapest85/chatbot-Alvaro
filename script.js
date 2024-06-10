@@ -187,5 +187,30 @@ function displayQuestion(index) {
   addMessageToChat(questionData.question, 'bot', questionData.answers);
 }
 
-// Inicializar con la primera pregunta
-displayQuestion(currentQuestionIndex);
+function typeWriter(text, i, callback) {
+  if (i < text.length) {
+    document.getElementById("intro-text").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+    setTimeout(function() {
+      typeWriter(text, i + 1, callback);
+    }, 100);
+  } else if (typeof callback == 'function') {
+    setTimeout(callback, 700);
+  }
+}
+
+// Inicializar con la introducción
+function startIntro() {
+  const introText = "Bienvenido al chatbot. A continuación, responderás algunas preguntas.";
+  const introElement = document.createElement('div');
+  introElement.classList.add('message', 'bot', 'typewriter');
+  introElement.innerHTML = '<p id="intro-text"></p>';
+  chatBox.appendChild(introElement);
+
+  typeWriter(introText, 0, function() {
+    chatBox.removeChild(introElement);
+    displayQuestion(currentQuestionIndex);
+  });
+}
+
+// Ejecutar la introducción al cargar
+startIntro();

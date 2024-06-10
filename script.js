@@ -14,7 +14,7 @@ const questions = [
     question: "¿Vale, quieres un lote, y sabes cuánto estás dispuesto a invertir?",
     answers: [
       { text: "Menos de un millón de dólares", nextQuestion: null },
-      { text: "Más de1 millón de dólares", nextQuestion: null }
+      { text: "Más de un millón de dólares", nextQuestion: null }
     ]
   },
   { // Pregunta 2
@@ -29,7 +29,7 @@ const questions = [
   { // Pregunta 3
     question: "Ya sabemos que buscas una villa, pero...",
     answers: [
-      { text: "Quieres ademas una piscina?", nextQuestion: 2, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/yrt.gif" },
+      { text: "Quieres además una piscina?", nextQuestion: 2, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/yrt.gif" },
       { text: "¿Una o dos plantas?", nextQuestion: null }
     ]
   },
@@ -189,10 +189,10 @@ function displayQuestion(index) {
 
 function typeWriter(text, i, callback) {
   if (i < text.length) {
-    document.getElementById("intro-text").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+    document.getElementById("intro-text").innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
     setTimeout(function() {
       typeWriter(text, i + 1, callback);
-    }, 100);
+    }, 50); // Velocidad ajustada a 50ms para mayor rapidez
   } else if (typeof callback == 'function') {
     setTimeout(callback, 700);
   }
@@ -207,7 +207,6 @@ function startIntro() {
   chatBox.appendChild(introElement);
 
   typeWriter(introText, 0, function() {
-    chatBox.removeChild(introElement);
     displayQuestion(currentQuestionIndex);
   });
 }

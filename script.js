@@ -2,35 +2,35 @@ const proxyUrl = '/api/proxy'; // URL del proxy en Netlify
 
 const questions = [
   { // Pregunta 0
-    question: "¿Qué tipo de propiedad buscas?",
+    question: "¿What type of property are you looking for??",
     answers: [
-      { text: "¿Un apartamento?", nextQuestion: 2, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/casa.gif" },
-      { text: "¿Una villa?", nextQuestion: 3, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/playa.gif" },
-      { text: "Un lote condominal", nextQuestion: 1, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/fam3.gif" },
-      { text: "No estoy seguro", nextQuestion: 4, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/cas2.gif" }
+      { text: "An Apartment", nextQuestion: 2, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/casa.gif" },
+      { text: "A Vila", nextQuestion: 3, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/playa.gif" },
+      { text: "A condominium lot", nextQuestion: 1, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/fam3.gif" },
+      { text: "I'm not sure", nextQuestion: 4, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/cas2.gif" }
     ]
   },
   { // Pregunta 1
-    question: "¿Vale, quieres un lote, y sabes cuánto estás dispuesto a invertir?",
+    question: "Alright, you want a lot. Do you know how much you are willing to invest?",
     answers: [
-      { text: "Menos de un millón de dólares", nextQuestion: null },
-      { text: "Más de un millón de dólares", nextQuestion: null }
+      { text: "Less than a million dollars", nextQuestion: null },
+      { text: "More than a million dollars", nextQuestion: null }
     ]
   },
   { // Pregunta 2
-    question: "¿Buscas ambiente familiar?",
+    question: "¿Are you looking for a family-friendly environment?",
     answers: [
-      { text: "Sí, busco zonas comunes", nextQuestion: null },
-      { text: "Me interesa mucho el deporte", nextQuestion: null },
-      { text: "Solo busco invertir", nextQuestion: null },
-      { text: "Busco una segunda residencia", nextQuestion: null }
+      { text: "Yes, I’m looking for common areas", nextQuestion: null },
+      { text: "I'm very interested in sports", nextQuestion: null },
+      { text: "I'm only looking to invest.", nextQuestion: null },
+      { text: "I'm looking for a second home", nextQuestion: null }
     ]
   },
   { // Pregunta 3
-    question: "Ya sabemos que buscas una villa, pero...",
+    question: "We already know you're looking for a villa, but...",
     answers: [
-      { text: "Quieres además una piscina?", nextQuestion: 2, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/yrt.gif" },
-      { text: "¿Una o dos plantas?", nextQuestion: null }
+      { text: "Do you also want a swimming pool?", nextQuestion: 2, image: "https://raw.githubusercontent.com/budapest85/chatbot-Alvaro/main/yrt.gif" },
+      { text: "One or two floors?", nextQuestion: null }
     ]
   },
   { // Pregunta 4
@@ -200,7 +200,7 @@ function typeWriter(text, i, callback) {
 
 // Inicializar con la introducción
 function startIntro() {
-  const introText = "Bienvenido a este chat que te guiará para que podamos ofrecerte el producto que mejor se adapta a tus necesidades. Encuentra todo lo que buscas dentro de nuestro <b>Residencial Playa Nueva Romana</b>";
+  const introText = "Welcome to this chat that will guide you to find the product that best suits your needs. Discover everything you're looking for within our <b>Residencial Playa Nueva Romana.</b>";
   const introElement = document.createElement('div');
   introElement.classList.add('message', 'bot', 'typewriter');
   introElement.innerHTML = '<p id="intro-text"></p>';

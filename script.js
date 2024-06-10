@@ -200,7 +200,7 @@ function typeWriter(text, i, callback) {
 
 // Inicializar con la introducción
 function startIntro() {
-  const introText = "Bienvenido al chatbot. A continuación, responderás algunas preguntas.";
+  const introText = "Bienvenido a este chat que te guiar'a para que podamos ofrecerte el producto que mejor se adapta a tus necesidades. Encuentra todo lo que buscas dentro de nuestro residencial Playa Nueva Romana";
   const introElement = document.createElement('div');
   introElement.classList.add('message', 'bot', 'typewriter');
   introElement.innerHTML = '<p id="intro-text"></p>';

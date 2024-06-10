@@ -34,10 +34,10 @@ const questions = [
     ]
   },
   { // Pregunta 4
-    question: "Eres sabio",
+    question: "Alright, you want an apartment. Do you know how much you are willing to invest",
     answers: [
-      { text: "A", nextQuestion: null },
-      { text: "B", nextQuestion: null }
+      { text: "Less than a million dollars", nextQuestion: null },
+      { text: "More than a million dollars", nextQuestion: null }
     ]
   }
 ];
